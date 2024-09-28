@@ -25,16 +25,17 @@ int main()
 	x = x_start;
 	while (x <= x_end)
 	{
-		if (x < -R)
+		if (x <= -R)
 			y = R;
-		else if (x >= -R && x <= R)
-			y = -sqrt(R * R - x * x);
+		else if (x > -R && x <= R)
+			y = -sqrt(R * R - (x + R) * (x + R));
 		else if (x > R && x <= 6)
-			y = (R / (6.0 - R)) * (x - 6.0);
+			y = -R * (x - R) / (6 - R);
 		else if (x > 6 && x <= 9)
-			y = (-3.0 / 3.0) * (x - 9);
+			y = (x - 6) - 3;
 		else
-			y = (x - 9);
+			y = x - 9;
+
 		cout << "|" << setw(7) << setprecision(2) << x
 			<< "   |" << setw(10) << setprecision(3) << y
 			<< "    |" << endl;
